@@ -1,0 +1,36 @@
+
+<div class="container">
+    <h1>Random stuff</h1>
+    <form method="POST" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!--<input type="text">-->
+        <button type="submit" name = 'button'>Submit</button>
+    </form>
+</div>
+
+
+{% if text %}
+    {% if len == 1 %}
+        Here is 1 symbol: <h2>{{ text }}</h2>
+    {% else %}
+        Here are {{ len }} symbols <h2>{{ text }}</h2>
+    {% endif %}
+{% endif %}
+
+
+{% if words %}
+    <ul>
+    {% for w in words %}
+        <li>{{ w.post }}</li>
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No words are available.</p>
+{% endif %}
+
+
+
+
+

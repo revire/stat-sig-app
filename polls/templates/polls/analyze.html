@@ -1,0 +1,35 @@
+
+<style>
+    div, p, form, input, ul {
+        font-size: 20px;
+    }
+</style>
+
+<h2>Stat Significance</h2>
+
+<p>
+    Here is a tutorial for simple hypotheses tests.
+    Please upload your data and we'll start.
+</p>
+
+<p>
+    Firstly, please make some things clear.
+    In this tutorial we want to check if it is a coincidence, that
+    <ul>
+        <li>under the same conditions</li>
+        <li>but with one different trait</li>
+    </ul>
+
+    we get the following numbers.
+</p>
+
+<div>
+    <form enctype="multipart/form-data" action="" method="post"> <!-- Do not forget to add: enctype="multipart/form-data" -->
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Save">
+    </form>
+    {%if len%}
+        {{ len }}
+    {%endif%}
+</div>
