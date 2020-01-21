@@ -63,7 +63,7 @@ class AnalyzeView(TemplateView):
             # file is saved
             l  = analyze(path)
             file.save()
-            print(l)
+            print('Number or lines: ', l)
             # l = 2
             fileform = UploadFileForm()
 
