@@ -1,0 +1,13 @@
+<html>
+   <head>
+       <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
+   </head>
+   <body>
+       <h1><a href="{% url 'imnebel:index' %}">Welcome to my blog</a></h1>
+       {% block content %}
+
+       {% endblock %}
+   </body>
+</html>
+
+

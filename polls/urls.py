@@ -1,5 +1,5 @@
 from django.urls import path
-from polls.views import IndexView, AnalyzeView
+from .views import IndexView, AnalyzeView
 from django.conf.urls import url
 from . import views
 

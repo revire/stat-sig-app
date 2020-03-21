@@ -18,6 +18,9 @@ from django.contrib.auth.models import User
 
 from .models import Choice, Question, Data
 
+import os
+from django.conf import settings
+
 class IndexView(TemplateView):
     template_name = 'polls/home.html'
 
@@ -43,7 +46,7 @@ class IndexView(TemplateView):
         context = {'form' : form, 'text': text, 'len': l, 'words': words}
         return render(request, self.template_name, context)
 
-from .analyze.analyze import analyze, get_dtype
+from .analyze.analyze import analyze
 
 class AnalyzeView(TemplateView):
     template_name = 'polls/analyze.html'
@@ -59,20 +62,12 @@ class AnalyzeView(TemplateView):
         file = UploadFileForm(request.POST, request.FILES)
         print(type(file))
         if file.is_valid():
-            path = request.FILES['file']
-
-            print(path, path.name)
-            # file is saved
-            # l = type(path)
+            f = request.FILES['file']
             file.save()
-            l = analyze(path.name)
-            dt = get_dtype(path)
-            print('Number or lines: ', l)
-            # print(dt)
-            # l = 2
+            l, m = analyze(os.path.join(settings.MEDIA_ROOT, f.name))
             fileform = UploadFileForm()
 
-        context = {'form':fileform, 'file':file, 'len':l}
+        context = {'form':fileform, 'file':file, 'len':l, 'median': m}
         return render(request, self.template_name, context)
 
 

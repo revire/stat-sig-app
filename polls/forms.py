@@ -1,5 +1,5 @@
 from django import forms
-from polls.models import Data, DataFile
+from .models import Data, DataFile
 
 
 
